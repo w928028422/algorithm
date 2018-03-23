@@ -1,5 +1,8 @@
 package array;
 
+/**
+ * 用数组实现栈和队列
+ */
 public class ArrayToStackQueue {
     static class MyStack {
         private int index;

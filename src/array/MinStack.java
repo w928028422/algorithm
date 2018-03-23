@@ -2,6 +2,9 @@ package array;
 
 import java.util.Stack;
 
+/**
+ * 实现一个能够随时获得栈中最小元素的栈
+ */
 public class MinStack {
     private Stack<Integer> data;
     private Stack<Integer> min;

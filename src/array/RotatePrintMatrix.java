@@ -3,6 +3,9 @@ package array;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 顺时针方向打印矩阵
+ */
 public class RotatePrintMatrix {
 
     public static List<Integer> solution(int[][] matrix){
