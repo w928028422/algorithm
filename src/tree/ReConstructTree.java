@@ -11,14 +11,14 @@ import static tree.TreeTraversal.*;
 public class ReConstructTree {
 
     public static Node construct(List<Integer> pre, List<Integer> mid){
-        if (pre.size() == 0 || mid.size() == 0){
+        if (pre.isEmpty() || mid.isEmpty()){
             return null;
         }
         int root = pre.get(0);
-        int rootMidIndex = mid.indexOf(root);
+        int rootIndex = mid.indexOf(root);
         Node node = new Node(root);
-        node.left = construct(pre.subList(1, rootMidIndex + 1), mid.subList(0, rootMidIndex));
-        node.right = construct(pre.subList(rootMidIndex + 1, pre.size()), mid.subList(rootMidIndex + 1, mid.size()));
+        node.left = construct(pre.subList(1, rootIndex + 1), mid.subList(0, rootIndex));
+        node.right = construct(pre.subList(rootIndex + 1, pre.size()), mid.subList(rootIndex + 1, mid.size()));
         return node;
     }
 

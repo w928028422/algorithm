@@ -43,6 +43,7 @@ public class TreeTraversal {
                 cur = cur.right;
             }
         }
+
         System.out.println();
     }
 

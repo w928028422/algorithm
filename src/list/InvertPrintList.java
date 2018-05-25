@@ -1,5 +1,6 @@
 package list;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -21,17 +22,8 @@ public class InvertPrintList {
     }
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(0), temp = head;
         int k = 9;
-        head.next = null;
-        System.out.print(head.data + " ");
-        for (int i = 0; i < 10; i++) {
-            ListNode node = new ListNode(i + 1);
-            System.out.print(node.data + " ");
-            temp.next = node;
-            temp = node;
-        }
-        System.out.println();
+        ListNode head = ListNode.createList(Arrays.asList(0,1,2,3,4,5,6,7,8,9,10));
         print(head);
     }
 }

@@ -1,39 +1,40 @@
 package list;
 
+import java.util.Arrays;
+
+import static list.ListNode.*;
+
 public class ReverseList {
 
     public static ListNode solution(ListNode head){
-        if (head == null){
+        ListNode newHead = null;
+        ListNode curHead = head;
+        while (curHead != null){
+            ListNode temp = curHead.next;
+            curHead.next = newHead;
+            newHead = curHead;
+            curHead = temp;
+        }
+        return newHead;
+    }
+
+    /**
+     * 递归法
+     */
+    public static ListNode reverse(ListNode head){
+        if (head == null || head.next == null){
             return head;
         }
-        ListNode res = new ListNode(-1);
-        ListNode first, temp;
-        res.next = head;
-        first = res.next;
-        while (first.next != null){
-            temp = first.next;
-            first.next = temp.next;
-            temp.next = res.next;
-            res.next = temp;
-        }
-        return res.next;
+        ListNode newHead = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
     }
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(0), temp = head;
-        head.next = null;
-        for (int i = 0; i < 10; i++) {
-            ListNode node = new ListNode(i + 1);
-            System.out.print(node.data + " ");
-            temp.next = node;
-            temp = node;
-        }
-        System.out.println();
-        temp.next = null;
-        ListNode iter = solution(head);
-        while (iter != null){
-            System.out.print(iter.data + " ");
-            iter = iter.next;
-        }
+        ListNode head = createList(Arrays.asList(0,1,2,3,4,5,6,7,8,9,10));
+        printList(head);
+        ListNode newHead = solution(head);
+        printList(newHead);
     }
 }
